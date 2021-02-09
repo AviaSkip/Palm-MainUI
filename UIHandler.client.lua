@@ -50,7 +50,7 @@ BuyButton1.Button.MouseButton1Click:Connect(function()
 	MarketplaceService.PromptProductPurchaseFinished:Connect(function(UserId, assetid, isFinished)
 		if isFinished then
 			-- TODO: ADD CASH TO ACCOUNT
-			game.Players.AviaSkip.leaderstats.Money.Value += 1000
+			LocalPlayer.leaderstats.Money.Value += 1000
 		end
 	end)
 end)
@@ -61,7 +61,7 @@ BuyButton2.Button.MouseButton1Click:Connect(function()
 	MarketplaceService.PromptProductPurchaseFinished:Connect(function(UserId, assetid, isFinished)
 		if isFinished then
 			-- TODO: ADD CASH TO ACCOUNT
-			game.Players.AviaSkip.leaderstats.Money.Value += 5000
+			LocalPlayer.leaderstats.Money.Value += 5000
 		end
 	end)
 end)
@@ -72,7 +72,7 @@ BuyButton3.Button.MouseButton1Click:Connect(function()
 	MarketplaceService.PromptProductPurchaseFinished:Connect(function(UserId, assetid, isFinished)
 		if isFinished then
 			-- TODO: ADD CASH TO ACCOUNT
-			game.Players.AviaSkip.leaderstats.Money.Value += 10000
+			LocalPlayer.leaderstats.Money.Value += 10000
 		end
 	end)
 end)
