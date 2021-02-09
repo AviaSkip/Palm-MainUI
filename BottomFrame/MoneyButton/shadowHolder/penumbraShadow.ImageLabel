@@ -1,0 +1,325 @@
+{
+ "className": "ImageLabel",
+ "name": "penumbraShadow",
+ "referent": "RBX1A92A6A6085849D5BB6220EFD5D066CC",
+ "properties": {
+  "Active": {
+   "_propertyType": "bool",
+   "values": {
+    "_": "false"
+   }
+  },
+  "AutoLocalize": {
+   "_propertyType": "bool",
+   "values": {
+    "_": "true"
+   }
+  },
+  "ClipsDescendants": {
+   "_propertyType": "bool",
+   "values": {
+    "_": "false"
+   }
+  },
+  "Draggable": {
+   "_propertyType": "bool",
+   "values": {
+    "_": "false"
+   }
+  },
+  "Selectable": {
+   "_propertyType": "bool",
+   "values": {
+    "_": "false"
+   }
+  },
+  "Visible": {
+   "_propertyType": "bool",
+   "values": {
+    "_": "true"
+   }
+  },
+  "AnchorPoint": {
+   "_propertyType": "Vector2",
+   "values": {
+    "X": [
+     "0.5"
+    ],
+    "Y": [
+     "0.5"
+    ]
+   }
+  },
+  "ImageRectOffset": {
+   "_propertyType": "Vector2",
+   "values": {
+    "X": [
+     "0"
+    ],
+    "Y": [
+     "0"
+    ]
+   }
+  },
+  "ImageRectSize": {
+   "_propertyType": "Vector2",
+   "values": {
+    "X": [
+     "0"
+    ],
+    "Y": [
+     "0"
+    ]
+   }
+  },
+  "AttributesSerialize": {
+   "_propertyType": "BinaryString",
+   "values": {}
+  },
+  "Tags": {
+   "_propertyType": "BinaryString",
+   "values": {}
+  },
+  "AutomaticSize": {
+   "_propertyType": "token",
+   "values": {
+    "_": "0"
+   }
+  },
+  "BorderMode": {
+   "_propertyType": "token",
+   "values": {
+    "_": "0"
+   }
+  },
+  "ScaleType": {
+   "_propertyType": "token",
+   "values": {
+    "_": "1"
+   }
+  },
+  "SizeConstraint": {
+   "_propertyType": "token",
+   "values": {
+    "_": "0"
+   }
+  },
+  "BackgroundColor3": {
+   "_propertyType": "Color3",
+   "values": {
+    "R": [
+     "0.639215708"
+    ],
+    "G": [
+     "0.635294139"
+    ],
+    "B": [
+     "0.647058845"
+    ]
+   }
+  },
+  "BorderColor3": {
+   "_propertyType": "Color3",
+   "values": {
+    "R": [
+     "0.105882362"
+    ],
+    "G": [
+     "0.164705887"
+    ],
+    "B": [
+     "0.207843155"
+    ]
+   }
+  },
+  "ImageColor3": {
+   "_propertyType": "Color3",
+   "values": {
+    "R": [
+     "0"
+    ],
+    "G": [
+     "0"
+    ],
+    "B": [
+     "0"
+    ]
+   }
+  },
+  "BackgroundTransparency": {
+   "_propertyType": "float",
+   "values": {
+    "_": "1"
+   }
+  },
+  "ImageTransparency": {
+   "_propertyType": "float",
+   "values": {
+    "_": "0.879999995"
+   }
+  },
+  "Rotation": {
+   "_propertyType": "float",
+   "values": {
+    "_": "0"
+   }
+  },
+  "SliceScale": {
+   "_propertyType": "float",
+   "values": {
+    "_": "1"
+   }
+  },
+  "BorderSizePixel": {
+   "_propertyType": "int",
+   "values": {
+    "_": "1"
+   }
+  },
+  "LayoutOrder": {
+   "_propertyType": "int",
+   "values": {
+    "_": "0"
+   }
+  },
+  "ZIndex": {
+   "_propertyType": "int",
+   "values": {
+    "_": "0"
+   }
+  },
+  "Image": {
+   "_propertyType": "Content",
+   "values": {
+    "url": [
+     "rbxassetid://1316045217"
+    ]
+   }
+  },
+  "Name": {
+   "_propertyType": "string",
+   "values": {
+    "_": "penumbraShadow"
+   }
+  },
+  "NextSelectionDown": {
+   "_propertyType": "Ref",
+   "values": {
+    "_": "null"
+   }
+  },
+  "NextSelectionLeft": {
+   "_propertyType": "Ref",
+   "values": {
+    "_": "null"
+   }
+  },
+  "NextSelectionRight": {
+   "_propertyType": "Ref",
+   "values": {
+    "_": "null"
+   }
+  },
+  "NextSelectionUp": {
+   "_propertyType": "Ref",
+   "values": {
+    "_": "null"
+   }
+  },
+  "RootLocalizationTable": {
+   "_propertyType": "Ref",
+   "values": {
+    "_": "null"
+   }
+  },
+  "SelectionImageObject": {
+   "_propertyType": "Ref",
+   "values": {
+    "_": "null"
+   }
+  },
+  "Position": {
+   "_propertyType": "UDim2",
+   "values": {
+    "XS": [
+     "0.5"
+    ],
+    "XO": [
+     "0"
+    ],
+    "YS": [
+     "0.5"
+    ],
+    "YO": [
+     "0"
+    ]
+   }
+  },
+  "Size": {
+   "_propertyType": "UDim2",
+   "values": {
+    "XS": [
+     "1.04999995"
+    ],
+    "XO": [
+     "0"
+    ],
+    "YS": [
+     "1.04999995"
+    ],
+    "YO": [
+     "0"
+    ]
+   }
+  },
+  "TileSize": {
+   "_propertyType": "UDim2",
+   "values": {
+    "XS": [
+     "1"
+    ],
+    "XO": [
+     "0"
+    ],
+    "YS": [
+     "1"
+    ],
+    "YO": [
+     "0"
+    ]
+   }
+  },
+  "SliceCenter": {
+   "_propertyType": "Rect2D",
+   "values": {
+    "min": [
+     {
+      "X": [
+       "10"
+      ],
+      "Y": [
+       "10"
+      ]
+     }
+    ],
+    "max": [
+     {
+      "X": [
+       "118"
+      ],
+      "Y": [
+       "118"
+      ]
+     }
+    ]
+   }
+  },
+  "SourceAssetId": {
+   "_propertyType": "int64",
+   "values": {
+    "_": "-1"
+   }
+  }
+ },
+ "_exportInfo": "Exported with rbx-export v1.1.0. Contains all properties of this instance."
+}

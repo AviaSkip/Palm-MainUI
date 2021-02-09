@@ -1,0 +1,54 @@
+{
+ "className": "LocalScript",
+ "name": "UIHandler",
+ "referent": "RBX6DA7C776F28448949A599FA38DB21DDE",
+ "properties": {
+  "AttributesSerialize": {
+   "_propertyType": "BinaryString",
+   "values": {}
+  },
+  "Tags": {
+   "_propertyType": "BinaryString",
+   "values": {}
+  },
+  "Disabled": {
+   "_propertyType": "bool",
+   "values": {
+    "_": "false"
+   }
+  },
+  "LinkedSource": {
+   "_propertyType": "Content",
+   "values": {
+    "null": [
+     ""
+    ]
+   }
+  },
+  "Name": {
+   "_propertyType": "string",
+   "values": {
+    "_": "UIHandler"
+   }
+  },
+  "ScriptGuid": {
+   "_propertyType": "string",
+   "values": {
+    "_": "{B8CD4D8C-012B-4064-A689-24313E28047D}"
+   }
+  },
+  "Source": {
+   "_propertyType": "ProtectedString",
+   "values": {
+    "_": "--[[\n\tUIHandler\n\tHandles all the UI descendants of MainUI\n]]\n\n-- [[ Services ]]\nlocal TweenService = game:GetService(\"TweenService\")\nlocal RunService = game:GetService(\"RunService\")\nlocal ContentProvider = game:GetService(\"ContentProvider\")\nlocal MarketplaceService = game:GetService(\"MarketplaceService\")\nlocal Players = game:GetService(\"Players\")\n\n-- [[ Frames ]]\nlocal BottomFrame = script.Parent:WaitForChild(\"BottomFrame\")\nlocal TeamFrame = script.Parent:WaitForChild(\"TeamFrame\")\nlocal SettingsFrame = script.Parent:WaitForChild(\"SettingsFrame\")\nlocal MoneyFrame = script.Parent:WaitForChild(\"MoneyFrame\")\nlocal MapFrame = script.Parent:WaitForChild(\"MapFrame\")\n\n-- [[ Buttons ]]\nlocal TeamButton = BottomFrame:WaitForChild(\"TeamButton\")\nlocal SettingsButton = BottomFrame:WaitForChild(\"SettingsButton\")\nlocal MoneyButton = BottomFrame:WaitForChild(\"MoneyButton\")\nlocal MapButton = BottomFrame:WaitForChild(\"MapButton\")\n\n-- [[ Misc ]]\nlocal LocalPlayer = Players.LocalPlayer\nlocal UserId = LocalPlayer.UserId\nlocal TeamEnabled = false\nlocal SettingEnabled = false\nlocal MoneyEnabled = false\nlocal MapEnabled = false\nlocal AssetsLoaded = false\n\nlocal tweenInfo = TweenInfo.new(0.53, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)\n\n-- [[ Marketplace Handler ]]\nlocal AssetIds = {\n\t[\"Cash1\"] = 1149142135,\n\t[\"Cash2\"] = 1149142165,\n\t[\"Cash3\"] = 1149142230\n}\nlocal BuyButton1 = MoneyFrame.ButtonFrame:WaitForChild(\"MoneyButton1\")\nlocal BuyButton2 = MoneyFrame.ButtonFrame:WaitForChild(\"MoneyButton2\")\nlocal BuyButton3 = MoneyFrame.ButtonFrame:WaitForChild(\"MoneyButton3\")\n\nBuyButton1.Button.MouseButton1Click:Connect(function()\n\tMarketplaceService:PromptProductPurchase(LocalPlayer, AssetIds.Cash1)\n\t\n\tMarketplaceService.PromptProductPurchaseFinished:Connect(function(UserId, assetid, isFinished)\n\t\tif isFinished then\n\t\t\t-- TODO: ADD CASH TO ACCOUNT\n\t\t\tgame.Players.AviaSkip.leaderstats.Money.Value += 1000\n\t\tend\n\tend)\nend)\n\nBuyButton2.Button.MouseButton1Click:Connect(function()\n\tMarketplaceService:PromptProductPurchase(LocalPlayer, AssetIds.Cash2)\n\n\tMarketplaceService.PromptProductPurchaseFinished:Connect(function(UserId, assetid, isFinished)\n\t\tif isFinished then\n\t\t\t-- TODO: ADD CASH TO ACCOUNT\n\t\t\tgame.Players.AviaSkip.leaderstats.Money.Value += 5000\n\t\tend\n\tend)\nend)\n\nBuyButton3.Button.MouseButton1Click:Connect(function()\n\tMarketplaceService:PromptProductPurchase(LocalPlayer, AssetIds.Cash3)\n\n\tMarketplaceService.PromptProductPurchaseFinished:Connect(function(UserId, assetid, isFinished)\n\t\tif isFinished then\n\t\t\t-- TODO: ADD CASH TO ACCOUNT\n\t\t\tgame.Players.AviaSkip.leaderstats.Money.Value += 10000\n\t\tend\n\tend)\nend)\n\n-- [[ Asset Pre-Loader ]]\nlocal Assets = { \"rbxassetid://6356403497\", \"rbxassetid://6356416122\", \"rbxassetid://6351938199\", \"rbxassetid://6347534921\"}\nContentProvider:PreloadAsync(Assets, function()\n\tAssetsLoaded = true\nend)\n\n-- [[ Tween Animations ]]\nlocal function TweenIn(menu)\n\tif menu == MapFrame then\n\t\tlocal TweenIn = TweenService:Create(menu, tweenInfo, {Position = UDim2.new(0.008, 0, 0.683, 0)})\n\t\tTweenIn:Play()\n\telse\n\t\tlocal TweenIn = TweenService:Create(menu, tweenInfo, {Position = UDim2.new(0.008, 0, 0.745, 0)})\n\t\tTweenIn:Play()\n\tend\nend\n\nlocal function TweenOut(menu)\n\tif menu == MapFrame then\n\t\tlocal TweenOut = TweenService:Create(menu, tweenInfo, {Position = UDim2.new(-0.18, 0, 0.683, 0)})\n\t\tTweenOut:Play()\n\telse\n\t\tlocal TweenOut = TweenService:Create(menu, tweenInfo, {Position = UDim2.new(-0.18, 0, 0.745, 0)})\n\t\tTweenOut:Play()\n\tend\nend\n\nlocal function OpenMenu(menu)\n\tif menu == \"Settings\" then\n\t\tif TeamEnabled and MoneyEnabled and MapEnabled == false then\n\t\t\tTweenIn(SettingsFrame)\n\t\t\tSettingEnabled = true\n\t\telseif SettingEnabled == true then\n\t\t\tTweenOut(SettingsFrame)\n\t\t\tSettingEnabled = false\n\t\telse\n\t\t\tTeamEnabled = false\n\t\t\tMoneyEnabled = false\n\t\t\tMapEnabled = false\n\t\t\tTweenOut(TeamFrame)\n\t\t\tTweenOut(MoneyFrame)\n\t\t\tTweenOut(MapFrame)\n\t\t\twait(tweenInfo.Time)\n\t\t\tTweenIn(SettingsFrame)\n\t\t\tSettingEnabled = true\n\t\tend\n\telseif menu == \"Map\" then\n\t\tif TeamEnabled and MoneyEnabled and SettingEnabled == false then\n\t\t\tTweenIn(MapFrame)\n\t\t\tMapEnabled = true\n\t\telseif MapEnabled == true then\n\t\t\tTweenOut(MapFrame)\n\t\t\tMapEnabled = false\n\t\telse\n\t\t\tTeamEnabled = false\n\t\t\tMoneyEnabled = false\n\t\t\tSettingEnabled = false\n\t\t\tTweenOut(TeamFrame)\n\t\t\tTweenOut(MoneyFrame)\n\t\t\tTweenOut(SettingsFrame)\n\t\t\twait(tweenInfo.Time)\n\t\t\tTweenIn(MapFrame)\n\t\t\tMapEnabled = true\n\t\tend\n\telseif menu == \"Money\" then\n\t\tif TeamEnabled and MapEnabled and SettingEnabled == false then\n\t\t\tTweenIn(MoneyFrame)\n\t\t\tMoneyEnabled = true\n\t\telseif MoneyEnabled == true then\n\t\t\tTweenOut(MoneyFrame)\n\t\t\tMoneyEnabled = false\n\t\telse\n\t\t\tTeamEnabled = false\n\t\t\tMapEnabled = false\n\t\t\tSettingEnabled = false\n\t\t\tTweenOut(TeamFrame)\n\t\t\tTweenOut(MapFrame)\n\t\t\tTweenOut(SettingsFrame)\n\t\t\twait(tweenInfo.Time)\n\t\t\tTweenIn(MoneyFrame)\n\t\t\tMoneyEnabled = true\n\t\tend\n\telseif menu == \"Team\" then\n\t\tif MoneyEnabled and MapEnabled and SettingEnabled == false then\n\t\t\tTweenIn(TeamFrame)\n\t\t\tTeamEnabled = true\n\t\telseif TeamEnabled == true then\n\t\t\tTweenOut(TeamFrame)\n\t\t\tTeamEnabled = false\n\t\telse\n\t\t\tMoneyEnabled = false\n\t\t\tMapEnabled = false\n\t\t\tSettingEnabled = false\n\t\t\tTweenOut(MoneyFrame)\n\t\t\tTweenOut(MapFrame)\n\t\t\tTweenOut(SettingsFrame)\n\t\t\twait(tweenInfo.Time)\n\t\t\tTweenIn(TeamFrame)\n\t\t\tTeamEnabled = true\n\t\tend\n\tend\nend\n\nlocal TweenBottomFrameOut = TweenService:Create(BottomFrame, tweenInfo, {Position = UDim2.new(-0.1, 0, 0.874, 0)})\nlocal TweenBottomFrameIn = TweenService:Create(BottomFrame, tweenInfo, {Position = UDim2.new(0.007, 0, 0.874, 0)})\n\nlocal function HideUI()\n\tTweenOut(MapFrame)\n\tTweenOut(MoneyFrame)\n\tTweenOut(SettingsFrame)\n\tTweenOut(TeamFrame)\n\tTweenBottomFrameOut:Play()\n\tMapEnabled = false\n\tMoneyEnabled = false\n\tSettingEnabled = false\n\tTeamEnabled = false\nend\n\nlocal function ShowUI()\n\tTweenBottomFrameIn:Play()\nend\n\nMapButton.Button.MouseButton1Click:Connect(function()\n\tOpenMenu(\"Map\")\nend)\n\nMoneyButton.Button.MouseButton1Click:Connect(function()\n\tOpenMenu(\"Money\")\nend)\n\nSettingsButton.Button.MouseButton1Click:Connect(function()\n\tOpenMenu(\"Settings\")\nend)\n\nTeamButton.Button.MouseButton1Click:Connect(function()\n\tOpenMenu(\"Team\")\nend)\n\n-- [[ Map Handler ]]\n\nlocal ScreenGui = MapFrame\nlocal MinimapFrame = ScreenGui:WaitForChild(\"Minimap\")\nlocal DirectionArrow = MinimapFrame:WaitForChild(\"DirectionArrow\")\nlocal Char = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()\nlocal HRP = Char:WaitForChild(\"HumanoidRootPart\")\nlocal Humanoid = Char:WaitForChild(\"Humanoid\")\nlocal CurrentCamera = Instance.new(\"Camera\")\n\nCurrentCamera.FieldOfView = 1\nCurrentCamera.CameraType = Enum.CameraType.Scriptable\nCurrentCamera.Parent = workspace\nMinimapFrame.CurrentCamera = CurrentCamera\n\nfor i, minimapObject in pairs(workspace.MinimapObjects:GetChildren()) do\n\tminimapObject:Clone().Parent = MinimapFrame\nend\n\ngame:GetService(\"RunService\").RenderStepped:Connect(function()\n\tlocal camCFrame = CFrame.new(HRP.Position + Vector3.new(0, 5000, 0), HRP.Position)\n\tCurrentCamera.CFrame = camCFrame\n\n\tDirectionArrow.Rotation = -HRP.Orientation.Y - 90\nend)"
+   }
+  },
+  "SourceAssetId": {
+   "_propertyType": "int64",
+   "values": {
+    "_": "-1"
+   }
+  }
+ },
+ "_exportInfo": "Exported with rbx-export v1.1.0. Contains all properties of this instance."
+}
